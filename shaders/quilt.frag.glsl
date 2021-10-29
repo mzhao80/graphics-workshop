@@ -24,13 +24,15 @@ void main() {
 
     // 2. Uncomment these lines to invert some of the triangles
     vec2 cell = squareCoord - loc;
-    if (mod(2.0 * cell.x + cell.y, 5.0) == 1.0) {
+    if (mod(2.0 * cell.x + cell.y, 5.0) >= 2.0) {
         color = 1.0 - color;
     }
 
     // 3. Uncomment these lines to produce interesting colors
-    float c = mod(3.0 * cell.x + 2.0 * cell.y, 7.0) / 7.0;
-    color = 1.0 - (1.0 - color) * vec3(c, c, c);
+    float cx = mod(3.0 * cell.x + 2.0 * cell.y, 7.0) / 7.0;
+    float cy = mod(4.0 * cell.x + 3.0 * cell.y, 7.0) / 7.0;
+    float cz = mod(5.0 * cell.x + 4.0 * cell.y, 7.0) / 7.0;
+    color = 1.0 - (1.0 - color) * vec3(cx, cy, cz);
 
     // 4. Uncomment to lighten the colors
     color = sqrt(color);
